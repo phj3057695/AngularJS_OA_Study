@@ -1,0 +1,18 @@
+<!DOCTYPE html>  <!--화면에 hong-gildong이라 했습니다. 이 코드를 이용하여 '김나영'이라고 나오게 하세요. 이번에는 ng-controller를 이용-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/angular.js"></script>
+<body ng-app="myAngApp">
+    <h1 ng-controller="ctrl">{{test}}</h1>
+    <script>
+        function helloCtrl($scope){
+            $scope.test="김나영님 안녕하세요";
+        }
+        var test = angular.module('myAngApp',[]);    //var [var_name] = angular.module('[ng-app_name]',[]); 이러한 패턴이다.
+        test.controller('ctrl',helloCtrl); //위에서 선언한 [var_name].controller('ng-controller_name',[Controller_관련_함수]);
+    </script>
+</body>
+</html>

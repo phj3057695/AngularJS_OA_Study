@@ -1,0 +1,17 @@
+<!DOCTYPE html>  <!--화면에 hong-gildong이라 했습니다. 이 코드를 이용하여 '김나영'이라고 나오게 하세요.-->
+<html ng-app="myAngApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/angular.js"></script>
+<body>
+    <h1>{{test}}</h1>
+    <script>
+        var test = angular.module('myAngApp',[]);    //var [var_name] = angular.module('[ng-app_name]',[]); 이러한 패턴이다.
+        test.run(function($rootScope){
+            $rootScope.test="김나영";
+        })
+    </script>
+</body>
+</html>

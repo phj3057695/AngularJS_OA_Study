@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="expCtrl">
+        <h3>{{title|uppercase}}</h3>
+        <h3>{{title|lowercase}}</h3>
+        <h3>{{price|currency}}</h3>
+    </div>
+
+    <script src="js/angular.js"></script>
+    <script>
+        var app=angular.module('myApp',[]);
+        app.controller('expCtrl',function($scope){
+            $scope.title='helloApp';
+            $scope.price=123;
+        });
+    </script>
+</body>
+</html>

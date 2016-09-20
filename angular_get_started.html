@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="helloAngJS">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    h2{
+        width:100px;
+        transition: .3s ease;
+        transform: perspective(500px) rotateY(0deg) scale(0.5);
+    }
+    .s1{
+        border:1px solid blue;
+        transform:perspective(500px) rotateY(1080deg) scale(1.2);
+    }
+</style>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("helloAngJS",[]);
+    app.controller("ctrl",["$scope",function($scope){
+        $scope.txt="hello World";
+        $scope.name="홍길동";
+    }]);
+</script>
+<body ng-controller="ctrl">
+    <input type="checkbox" id="toggle" ng-model="toggle">  <!--ng-model : two way data binding-->
+    <h2 ng-class="{s1:toggle}">{{name}}</h2>  <!--ng-class : Angular JS의 조건문-->
+    <input type="text" ng-model="txt">
+    <h1>{{txt}}</h1>
+</body>
+</html>

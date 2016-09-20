@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="helloApp">
+<div ng-controller="helloCtrl">
+<p>Hello {{name}}</p>
+<p>Hello <h2 ng-bind="name"></h2></p></div>
+<script src="js/angular.js"></script>
+<script>
+    var hello=angular.module('helloApp',[]);
+    hello.controller('helloCtrl',['$scope',function($scope){
+        $scope.name="김나영";
+    }]);
+</script>
+</body>
+</html>
