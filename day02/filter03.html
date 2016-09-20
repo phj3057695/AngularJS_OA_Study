@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AngularJSApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/angular.js"></script>
+<script>
+    function agent(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    var lst=[
+        new agent('hong',23),
+        new agent('kim',18),
+        new agent('lee',55),
+        new agent('park',32),
+        new agent('choi',24)
+    ];
+    var app = angular.module('AngularJSApp',[]);
+    app.controller('myCtrl',['$scope',function($scope){
+        $scope.lst=lst;
+    }])
+</script>
+<body ng-controller="myCtrl">
+    <ul>
+        <li ng-repeat="agent in lst">
+            {{agent.name}} | {{agent.age}}
+        </li>
+    </ul>
+
+</body>
+</html>

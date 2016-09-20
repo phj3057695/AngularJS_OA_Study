@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AngularJSApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../js/angular.js"></script>
+<script src="../js/angular-ko.input.js"></script>
+<script>
+    function agent(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    var lst=[
+        new agent('hong',23),
+        new agent('kim',18),
+        new agent('lee',55),
+        new agent('choi',14),
+        new agent('park',12),
+        new agent('김광식',21)
+    ];
+    var app = angular.module('AngularJSApp',['kr-input']);
+    app.controller('myCtrl',['$scope',function($scope){
+        $scope.lst=lst;
+    }]);
+</script>
+<body ng-controller="myCtrl">
+    * 검색: <input ng-model="search" kr-input><br>
+    * 정렬: <input type="radio" ng-model="order" value="name">+이름
+    <input type="radio" ng-model="order" value="-name">-이름
+    <input type="radio" ng-model="order" value="age">+나이
+    <input type="radio" ng-model="order" value="-age">-나이
+<ul>
+    <li ng-repeat="agent in lst|filter:{name:search}|orderBy:order">
+        {{agent.name}} | {{agent.age}}
+    </li>
+</ul>
+</body>
+</html>
